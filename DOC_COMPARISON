@@ -29,6 +29,6 @@ fq.close()
 for i in l :
     llw2=[w.lower() for w in word_tokenize(i)]
     corpus_query=dic.doc2bow(llw2)
-#corpus_query = [dic.doc2bow(c)for c in llw2]# checks for  the words in previous document in each line of query document and gives the frequency of the words
+# checks for  the words in previous document in each line of query document and gives the frequency of the words
 query_tf_idf = tf_idf[corpus_query]
 print(sims[query_tf_idf])
