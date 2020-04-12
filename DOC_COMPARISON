@@ -25,10 +25,10 @@ fq = open ("query_doc.txt","r+")
 t = fq.read()
 print(t)
 l = sent_tokenize(t)
+llw2=[]
 fq.close()
 for i in l :
-    llw2=[w.lower() for w in word_tokenize(i)]
-    corpus_query=dic.doc2bow(llw2)
-# checks for  the words in previous document in each line of query document and gives the frequency of the words
-query_tf_idf = tf_idf[corpus_query]
-print(sims[query_tf_idf])
+    llw2.append([w.lower() for w in word_tokenize(i)])
+corpus_query=[dic.doc2bow(c) for c in llw2]
+query_tf_idf = tf_idf[corpus_query]# checks for  the words in previous document in each line of query document and gives the frequency of the words
+print(sims[query_tf_idf])#checks the similarity of each line of query doc to each line of index doc and gives similatiry values individualy
